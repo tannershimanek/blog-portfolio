@@ -12,9 +12,19 @@ const POST_GRAPHQL_FIELDS = `
     }
   }
   excerpt
+  category
   content {
     json
     links {
+      entries {
+        inline {
+          __typename
+          ... on CodeBlock {
+            language
+            codeBlock
+          }
+        }
+      }
       assets {
         block {
           sys {
@@ -27,6 +37,46 @@ const POST_GRAPHQL_FIELDS = `
     }
   }
 `;
+
+// const POST_GRAPHQL_FIELDS = `
+//   slug
+//   title
+//   coverImage {
+//     url
+//   }
+//   date
+//   author {
+//     name
+//     picture {
+//       url
+//     }
+//   }
+//   excerpt
+//   category
+//   content {
+//     json
+//     links {
+//       assets {
+//         block {
+//           sys {
+//             id
+//           }
+//           url
+//           description
+//         }
+//       }
+//       entries {
+//         inline {
+//           ... on CodeBlock {
+//             language
+//             code
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
+
 
 async function fetchGraphQL(query: string, preview = false): Promise<any> {
   return fetch(

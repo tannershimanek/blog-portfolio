@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { draftMode } from "next/headers";
 
-import MoreStories from "../../more-stories";
-import Avatar from "../../avatar";
-import Date from "../../date";
-import CoverImage from "../../cover-image";
+import Avatar from "../../../avatar";
+import Date from "../../../date";
+import CoverImage from "../../../cover-image";
 
 import { Markdown } from "@/lib/markdown";
 import { getAllPosts, getPostAndMorePosts } from "@/lib/api";
+import { MorePosts } from "@/components/MorePosts/MorePosts";
+import { Newsletter } from "@/components/Forms/NewsLetter";
 
 export async function generateStaticParams() {
   const allPosts = await getAllPosts(false);
@@ -16,6 +17,7 @@ export async function generateStaticParams() {
     slug: post.slug,
   }));
 }
+
 
 export default async function PostPage({
   params,
@@ -28,26 +30,26 @@ export default async function PostPage({
   return (
     <div className="container mx-auto px-5">
       <h2 className="mb-20 mt-8 text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter">
-        <Link href="/" className="hover:underline">
+        <Link href="/blog" className="hover:underline">
           Blog
         </Link>
         .
       </h2>
       <article>
         <h1 className="mb-12 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl">
-          {post.title}
+          {post?.title}
         </h1>
         <div className="hidden md:mb-12 md:block">
-          {post.author && (
-            <Avatar name={post.author.name} picture={post.author.picture} />
+          {post?.author && (
+            <Avatar name={post?.author.name} picture={post.author.picture} />
           )}
         </div>
         <div className="mb-8 sm:mx-0 md:mb-16">
-          <CoverImage title={post.title} url={post.coverImage.url} />
+          <CoverImage title={post?.title} url={post?.coverImage.url} />
         </div>
         <div className="mx-auto max-w-2xl">
           <div className="mb-6 block md:hidden">
-            {post.author && (
+            {post?.author && (
               <Avatar name={post.author.name} picture={post.author.picture} />
             )}
           </div>
@@ -58,12 +60,13 @@ export default async function PostPage({
 
         <div className="mx-auto max-w-2xl">
           <div className="prose">
-            <Markdown content={post.content} />
+            <Markdown content={post?.content} />
           </div>
         </div>
       </article>
+      <Newsletter className='mt-28 mx-auto max-w-2xl' showDrop />
       <hr className="border-accent-2 mt-28 mb-24" />
-      <MoreStories morePosts={morePosts} />
+      <MorePosts posts={morePosts} />
     </div>
   );
 }
