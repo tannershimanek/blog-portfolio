@@ -197,9 +197,9 @@ function Photos() {
           [
             "https://images.ctfassets.net/58na20jjf1ok/29AWGWPvaBcJooGGNW6v0N/879dbe9566fc16136c4df641352323cc/FeZsLY3VIAA-YuM.jpeg",
             "https://images.ctfassets.net/58na20jjf1ok/6yEFzDT3kFoBw6jHT7qjFj/f61e48ca0191ace348242e3f62c19351/lisha-riabinina-ErJiAxm6LdA-unsplash.jpg",
-            "https://images.ctfassets.net/58na20jjf1ok/2FgA3dyT2Ga3RwotDJLTTY/5a85acbcf720325bcde17491e5cd859a/image-3.jpg",
+            "https://images.ctfassets.net/pma6har0bej8/6hapTkylh4LQTa0oKZCWSJ/e4d11081db225c94551d013340649ded/image-3.jpg",
             "https://images.ctfassets.net/58na20jjf1ok/3D0bhhhxBiOG9zxff89hDG/e4552a705fa1da0dc383214328c42338/FeZsKjKUAAEEHLo.jpeg",
-            "https://images.ctfassets.net/58na20jjf1ok/3DXH6cG97o9wqDGsCf6R0/8225585b3708923f83b366a5fff36dc7/image-5.jpg",
+            "https://images.ctfassets.net/pma6har0bej8/5MP214krzvjHxkWKs3IHUY/c2bf85dacac0777bcd9d2f0e8f7d3d00/image-5.jpg",
           ].map((image, imageIndex) => (
             <div
               key={image}
