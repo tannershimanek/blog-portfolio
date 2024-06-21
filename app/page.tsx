@@ -289,8 +289,8 @@ export default async function Home() {
             Software designer, founder, and amateur astronaut.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Tanner, a software Engineer and entrepreneur based in Salt Lake
-            City. I’m the founder and of TannerDotDev, where we develop
+            I’m Tanner, a software Engineer based in Salt Lake
+            City. I develop
             technologies that empower people and businesses to automate on their
             own terms.
           </p>
